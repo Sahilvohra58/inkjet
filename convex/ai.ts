@@ -9,7 +9,7 @@ export const chat = action({
     message: v.string(),
     currentContent: v.string(),
   },
-  handler: async (ctx, args) => {
+  handler: async (ctx, args): Promise<string> => {
     // Get knowledge for context
     const knowledge = await ctx.runQuery(api.knowledge.list, {
       documentId: args.documentId,
